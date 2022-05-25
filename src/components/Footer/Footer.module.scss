@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.footer {
+	width: 100%;
+	height: 15rem;
+	
+	background-color: $azul-escuro;
+
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	@media (min-width: 768px) {
+		height: 10rem;
+	}
+
+	h5 {
+		color: $amarelo-claro;
+	}
+
+	&__icones {
+		nav {
+			display: flex;
+			flex-direction: row;
+			gap: 2rem;
+		}
+	}
+}
+
+.icone {
+
+	&__img {
+		fill: $amarelo-escuro;
+		width: 20px;
+		height: 20px;
+	}
+}
