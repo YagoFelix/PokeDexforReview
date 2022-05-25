@@ -1,0 +1,15 @@
+.principal {
+	padding: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+.treinadores {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-row: 1fr;
+	justify-items: center;
+
+}

@@ -1,5 +1,8 @@
+@import '../../styles/variables';
+
 .container {
-	margin-top: 5px;
+	margin-top: 10px;
 	min-height: 100vh;
-	background-color: green;
+	background-color: $azul-conteudo;
+	color: $amarelo-claro;
 }
