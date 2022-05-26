@@ -1,15 +1,55 @@
+@import '../../styles/variables';
+
 .principal {
-	padding: 1rem 0;
+	padding: 2rem 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 2rem;
+
 }
 
 .treinadores {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-row: 1fr;
 	justify-items: center;
+	align-items: center;
+	@media (max-width: 768px)  {
+		grid-template-columns: auto;
+		grid-template-rows: 1fr 1fr 1fr;
+	}
+}
 
+.nome {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	& input {
+		border: none;
+		outline: none;
+		border-bottom: 2px solid $amarelo-escuro;
+		font-size: 1rem;
+		color: $amarelo-claro;
+		background-color: transparent;
+	}	
+
+	.erro {
+		color: $erro;
+		font-weight: bold;
+	}
+
+	& .botao {
+		width: 100%;
+		border: none;
+		border-radius: .25rem;
+		padding: .5rem 2rem;
+		font-size: .875rem;
+		font-weight: 900;
+		cursor: pointer;
+		background-color: $amarelo-claro;
+		color: $azul-escuro;
+
+		&:hover {
+			background-color: $amarelo-escuro;
+		}
+	}
 }

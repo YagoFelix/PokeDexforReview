@@ -41,10 +41,15 @@
 		cursor: pointer;
 		background-color: $amarelo-claro;
 		color: $azul-escuro;
-		margin: 2rem 0;
+		margin-bottom: 2rem;
 
 		&:hover {
 			background-color: $amarelo-escuro;
 		}
 	}
+}
+
+.ativo {
+	background-color: $azul-claro;
+	border: 4px solid $amarelo-escuro
 }
