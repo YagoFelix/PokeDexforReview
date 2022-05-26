@@ -17,7 +17,7 @@ const Home = () => {
 		if (nome.length < 3) {
 			return setErro('Digite um nome válido!')
 		}
-		return navigate('/pokemon')
+		return navigate('/pokemons')
 	}
 
 	return (
