@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { getPokemonImg } from '../../services/axios'
+import { getPokemonImg, getPokemonColor } from '../../services/axios'
+import { usePokedex } from '../../contexts/Pokedex'
+import classNames from 'classnames';
 import Button from '../Button'
 import style from './CardPokemon.module.scss'
 
@@ -7,9 +9,7 @@ const CardPokemon = (props) => {
 	const [imagem, setImagem] = useState('')
 	const [tipos, setTipos] = useState([])
 
-	const Click = () => {
-		alert('oi')
-	}  
+	const { verificaCarrinho, carrinhoPokemon } = usePokedex()
 
 	useEffect(() => {
 		const obtemImagem = async () => {
@@ -24,8 +24,10 @@ const CardPokemon = (props) => {
 	}, [])
 
 	return (
-		<div className={style.card}>
-			{console.log(tipos)}
+		<div className={classNames({
+			[style.card]: true,
+			[style.card__ativo]: verificaCarrinho(props.url) === false
+		})}>
 			<div className={style.card__img}>
 				<img src={imagem} alt='Foto de um pokémon' />
 			</div>
@@ -35,10 +37,14 @@ const CardPokemon = (props) => {
 					{tipos.map((tipo, index) => (
 						<li className={style.tipos__tipo} key={index}>{tipo}</li>
 					))}
-					{/* <p className={style.tipos__tipo}>Vasco</p> */}
 				</ul>
 			</div>
-			<Button aoClicar={Click}>Escolher</Button>
+			{verificaCarrinho(props.url) && carrinhoPokemon.length < 3 &&
+			<Button aoClicar={() => props.adicionaPokemon(props.url)}>Escolher</Button>
+			}
+			{!verificaCarrinho(props.url) && carrinhoPokemon.length > 0 &&
+			<Button remover={true} aoClicar={() => props.removePokemon(props.url)}>Remover</Button>
+			}
 		</div>
 	)
 }

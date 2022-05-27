@@ -16,6 +16,15 @@
 		margin: none;
 		margin: 4rem 0;
 	}
+
+	&__remover {
+		background-color: $erro;
+		color: $amarelo-claro;
+		&:hover {
+			background-color: $erro!important;
+		}
+	}
+
 	&:hover {
 		background-color: $amarelo-escuro;
 	}
