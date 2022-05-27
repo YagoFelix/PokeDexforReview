@@ -25,7 +25,7 @@ const UsuarioProvider = ({ children }) => {
 		}
 	]
 
-	const [nome, setNome] = useState('');
+	const [nome, setNome] = useState('Valdery');
 	const [personagem, setPersonagem] = useState(personagens[0])
 
 	return (

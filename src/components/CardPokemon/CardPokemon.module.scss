@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+
+.card {
+	display: flex;
+	flex-direction: column;
+	background-color: $azul-escuro;
+	width: 100%;
+	height: 100%;
+	padding: 0 1rem;
+	border-radius: 10px;
+
+	&__img {
+		width: 100%;
+		height: 50%;
+		text-align: center;
+		padding: 1rem 0;
+
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__info {
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		height: 50%;
+		// background-color: black;
+
+		.nome {
+			font-size: 1.5rem;
+			font-weight: 900;
+			text-align: center;
+
+			&::first-letter {
+		
+				text-transform: uppercase;
+			}
+		}
+
+		.tipos {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: .5rem;
+
+			&__tipo {
+				padding: .325rem 1rem;
+				// background-color: $amarelo-claro;
+				background-color: rgb(255,255,255);
+				border-radius: 22px;
+				color: $azul-escuro;
+				font-weight: bold;
+				list-style: none;
+			}
+		}
+	}
+}
