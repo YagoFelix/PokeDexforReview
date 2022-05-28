@@ -9,16 +9,7 @@ const getPokemons = async (nextPage = '') => {
 	}
 }
 
-const getPokemonImg = async (url) => {
-	try {
-		const response = await fetch(url)
-		return response.json()
-	} catch (error) {
-		return new Error(error)
-	}
-}
-
-const getPokemonColor = async (url) => {
+const getOnePokemon = async (url) => {
 	try {
 		const response = await fetch(url)
 		return response.json()
@@ -29,6 +20,5 @@ const getPokemonColor = async (url) => {
 
 export {
 	getPokemons,
-	getPokemonImg,
-	getPokemonColor
+	getOnePokemon
 }

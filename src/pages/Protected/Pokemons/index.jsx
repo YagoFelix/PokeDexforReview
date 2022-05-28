@@ -1,9 +1,9 @@
+import style from './Pokemons.module.scss';
 import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import CardPokemon from "../../../components/CardPokemon";
-import { getPokemons, getPokemonImg } from '../../../services/axios'
-import retiraProximaPagina from "../../../utils";
-import style from './Pokemons.module.scss';
+import { getPokemons } from '../../../services/axios'
+import {retiraProximaPagina} from "../../../utils";
 import { usePokedex } from "../../../contexts/Pokedex";
 
 const Pokemons = () => {

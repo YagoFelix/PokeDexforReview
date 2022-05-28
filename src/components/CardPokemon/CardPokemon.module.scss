@@ -44,18 +44,6 @@
 			justify-content: center;
 			gap: .5rem;
 
-			&__tipo {
-				background-image: linear-gradient(to bottom right, $amarelo-claro, $amarelo-escuro);
-				color: $azul-escuro;
-				padding: .475rem 1rem;
-				border-radius: 25px;
-				font-weight: bold;
-				list-style: none;
-
-				&::first-letter {
-					text-transform: uppercase;
-				}
-			}
 		}
 	}
 

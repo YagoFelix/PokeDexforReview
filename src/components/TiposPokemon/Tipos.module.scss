@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.tipo {
+	color: white;
+	padding: .475rem 1rem;
+	border-radius: 25px;
+	font-weight: bold;
+	list-style: none;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
