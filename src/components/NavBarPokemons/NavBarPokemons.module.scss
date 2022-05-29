@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+
+.nav {
+	background-color: $azul-escuro;
+	width: 100%;
+	height: 4rem;
+	padding: .5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	form {
+		height: 100%;
+		display: flex;
+		width: 80%;
+
+		input {
+			width: 100%;
+			color: $amarelo-claro;
+			padding-left: 1rem;
+			font-size: 1.5rem;
+			border: none;
+			border-bottom: 1px solid $amarelo-claro;
+			background-color: transparent;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		button {
+			margin-left: .5rem;
+			padding: 0 2rem;
+			border: none;
+			cursor: pointer;
+			background-color: $amarelo-claro;
+		}
+	}
+
+	&__fixa {
+		top: 0;
+		position: fixed;
+	}
+}
+
+.button__fim {
+	height: 100%;
+	border: none;
+	border-radius: .25rem;
+	padding: .5rem 2rem;
+	font-size: .875rem;
+	font-weight: 900;
+	margin-left: 2rem;
+	cursor: pointer;
+	background-color: $amarelo-claro;
+	color: $azul-escuro;
+
+	&:hover {
+		background-color: $amarelo-escuro;
+	}
+
+}

@@ -5,6 +5,7 @@ import CardPokemon from "../../../components/CardPokemon";
 import { getPokemons } from '../../../services/axios'
 import {retiraProximaPagina} from "../../../utils";
 import { usePokedex } from "../../../contexts/Pokedex";
+import NavBarPokemons from '../../../components/NavBarPokemons';
 
 const Pokemons = () => {
 
@@ -12,6 +13,7 @@ const Pokemons = () => {
 
 	const [pokemons, setPokemons] = useState([]);
 	const [proximaPagina, setProximaPagina] = useState('')
+	const [navBarFixa, setNavBarFixa] = useState(false)
 
 
 	useEffect(() => {
@@ -25,6 +27,16 @@ const Pokemons = () => {
 		exibeTodos()
 	}, [])
 
+	useEffect(() => {
+		const posicaoScroll = () => {
+			const posicao = window.scrollY
+			const limiteEmPx = 30*(window.innerHeight/100)
+			posicao > limiteEmPx ? setNavBarFixa(true) : setNavBarFixa(false)
+		}
+
+		window.addEventListener('scroll', posicaoScroll)
+	}, [])
+
 	const nextPage = async () => {
 		const { results, next } = await getPokemons(proximaPagina)
 
@@ -32,20 +44,23 @@ const Pokemons = () => {
 		setPokemons((pokemonsAntigos) => [...pokemonsAntigos, ...results])
 	}
 	return (
+		<>
+		<NavBarPokemons navBarFixa={navBarFixa}/>
 		<div className={style.principal}>
 			<h2>Escolha até três pokemons!</h2>
 			<div className={style.pokemons}>
 
 			{pokemons && pokemons.map((pokemon, index) => (
 				<CardPokemon key={index} 
-					url={pokemon.url} 
-					nome={pokemon.name} 
-					adicionaPokemon={adicionaPokemon} 
-					removePokemon={removePokemon}/>
+				url={pokemon.url} 
+				nome={pokemon.name} 
+				adicionaPokemon={adicionaPokemon} 
+				removePokemon={removePokemon}/>
 				))}
 			</div>
 			< Button aoClicar={nextPage} verMais={true}>Ver mais</Button>
 		</div>
+		</>
 	)
 }
 

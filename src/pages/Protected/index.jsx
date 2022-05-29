@@ -5,10 +5,10 @@ import { useUsuario } from "../../contexts/User"
 const ProtectedLayout = ({ children }) => {
 	const navigate = useNavigate();
 
-	const { nome } = useUsuario();
+	const { personagem } = useUsuario();
 
 	useEffect(() => {
-		if (nome.length < 3) {
+		if (Object.keys(personagem).length == 0) {
 			return navigate('/')
 		}
 	}, [])

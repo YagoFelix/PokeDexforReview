@@ -6,10 +6,15 @@ import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 	const {
-		nome, setNome, personagem, personagens
+		personagem, personagens, alteraNomePersonagem
 	} = useUsuario()
 
 	const [erro, setErro] = useState('')
+	const [nome, setNome] = useState('')
+
+	const obtemNomePersonagem = (nome) => {
+		setNome(nome)
+	}
 
 	const navigate = useNavigate()
 
@@ -17,6 +22,7 @@ const Home = () => {
 		if (nome.length < 3) {
 			return setErro('Digite um nome válido!')
 		}
+		alteraNomePersonagem(nome)
 		return navigate('/pokemons')
 	}
 
@@ -29,6 +35,7 @@ const Home = () => {
 						key={treinador.id}
 						treinador={treinador}
 						escolha={personagem.id === treinador.id}
+						obtemNomePersonagem = {obtemNomePersonagem}
 					/>
 				))}
 			</div>

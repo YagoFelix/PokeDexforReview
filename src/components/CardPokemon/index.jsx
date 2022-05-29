@@ -16,7 +16,6 @@ const CardPokemon = (props) => {
 
 	const { verificaCarrinho, carrinhoPokemon } = usePokedex()
 
-
 	useEffect(() => {
 		const obtemImagem = async () => {
 			const response = await getOnePokemon(props.url)

@@ -1,0 +1,16 @@
+@import '../../../styles/variables';
+
+.principal {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: red;
+
+	.personagem {
+		width: 70%;
+		height: 100%;
+		background-color: black;
+	}
+}

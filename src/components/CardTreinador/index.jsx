@@ -5,11 +5,11 @@ import Button from '../Button';
 
 const CardTreinador = (props) => {
 
-	const { setPersonagem, setNome } = useUsuario()
+	const { setPersonagem } = useUsuario()
 
 	const aoClicar = () => {
 		setPersonagem(props.treinador)
-		setNome(props.treinador.nome)
+		props.obtemNomePersonagem(props.treinador.nome)
 	}
 
 	return (
@@ -18,12 +18,14 @@ const CardTreinador = (props) => {
 			[style.ativo]: props.escolha === true
 		})}>
 			<div className={style.card__foto} >
-				<img src={props.treinador.foto} alt="Foto de um treinador Pokemón" />
+				<img className={style.foto} src={props.treinador.foto} alt="Foto de um treinador Pokemón" />
 			</div>
+			<div className={style.card__info}>
 			<h1 className={style.card__nome}>{props.treinador.nome}</h1>
-			{!props.escolha && 
+			{!props.escolha && !props.final &&
 				<Button aoClicar={aoClicar}>Escolher</Button>
 			}
+			</div>
 		</div>
 	)
 }

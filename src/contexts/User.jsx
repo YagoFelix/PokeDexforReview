@@ -25,13 +25,10 @@ const UsuarioProvider = ({ children }) => {
 		}
 	]
 
-	const [nome, setNome] = useState('Valdery');
-	const [personagem, setPersonagem] = useState(personagens[0])
+	const [personagem, setPersonagem] = useState({})
 
 	return (
 		<UsuarioContext.Provider value={{
-			nome,
-			setNome,
 			personagem,
 			setPersonagem,
 			personagens
@@ -43,19 +40,21 @@ const UsuarioProvider = ({ children }) => {
 
 const useUsuario = () => {
 	const {
-		nome,
-		setNome,
 		personagem,
 		setPersonagem,
 		personagens
 	} = useContext(UsuarioContext)
 
+	const alteraNomePersonagem = (novoNome) => {
+		personagem.nome = novoNome
+		console.log(personagem)
+	}
+
 	return {
-		nome,
-		setNome,
 		personagem,
 		setPersonagem,
-		personagens
+		personagens,
+		alteraNomePersonagem
 	}
 }
 
