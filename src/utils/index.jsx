@@ -5,7 +5,6 @@ const retiraProximaPagina = (url) => {
 }
 
 const defineCorTipo = (tipoPokemon) => {
-	// const tipo = typeof tipoPokemon !== 'string' ? tipos[0].name : tipoPokemon
 	const tipo = tipoPokemon
 
 	const cores = {

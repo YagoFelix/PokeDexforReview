@@ -4,14 +4,16 @@ import Button from "../../../components/Button";
 import CardPokemon from "../../../components/CardPokemon";
 import { getPokemons } from '../../../services/axios'
 import {retiraProximaPagina} from "../../../utils";
+import { usePokemons } from '../../../contexts/Pokemons';
 import { usePokedex } from "../../../contexts/Pokedex";
 import NavBarPokemons from '../../../components/NavBarPokemons';
 
 const Pokemons = () => {
 
 	const {adicionaPokemon, removePokemon} = usePokedex()
+	const {pokemonsExibidos, setPokemonsExibidos} = usePokemons()
+	const [pokemons, setPokemons] = useState(false) 
 
-	const [pokemons, setPokemons] = useState([]);
 	const [proximaPagina, setProximaPagina] = useState('')
 	const [navBarFixa, setNavBarFixa] = useState(false)
 
@@ -22,7 +24,8 @@ const Pokemons = () => {
 			const regex = retiraProximaPagina(next)
 
 			setProximaPagina(regex)
-			setPokemons([...results])
+			setPokemonsExibidos([...results])
+			setPokemons(true)
 		}
 		exibeTodos()
 	}, [])
@@ -41,7 +44,7 @@ const Pokemons = () => {
 		const { results, next } = await getPokemons(proximaPagina)
 
 		setProximaPagina(retiraProximaPagina(next))
-		setPokemons((pokemonsAntigos) => [...pokemonsAntigos, ...results])
+		setPokemonsExibidos((pokemonsAntigos) => [...pokemonsAntigos, ...results])
 	}
 	return (
 		<>
@@ -49,14 +52,23 @@ const Pokemons = () => {
 		<div className={style.principal}>
 			<h2>Escolha até três pokemons!</h2>
 			<div className={style.pokemons}>
+				{pokemons && pokemonsExibidos.map((pokemon, index) => (
+					<CardPokemon key={index}
+					url = {pokemon.url}
+					nome= {pokemon.name} 
+					adicionaPokemon={adicionaPokemon} 
+					removePokemon={removePokemon}
+					/>
+				))}
 
-			{pokemons && pokemons.map((pokemon, index) => (
+			{/* {pokemons && pokemons.map((pokemon, index) => (
 				<CardPokemon key={index} 
 				url={pokemon.url} 
 				nome={pokemon.name} 
 				adicionaPokemon={adicionaPokemon} 
-				removePokemon={removePokemon}/>
-				))}
+				removePokemon={removePokemon}
+				/>
+				))} */}
 			</div>
 			< Button aoClicar={nextPage} verMais={true}>Ver mais</Button>
 		</div>
