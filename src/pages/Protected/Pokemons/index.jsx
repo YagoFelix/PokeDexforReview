@@ -2,7 +2,7 @@ import style from './Pokemons.module.scss';
 import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import CardPokemon from "../../../components/CardPokemon";
-import { getPokemons } from '../../../services/axios'
+import { getOnePokemon, getPokemons } from '../../../services/axios'
 import {retiraProximaPagina} from "../../../utils";
 import { usePokemons } from '../../../contexts/Pokemons';
 import { usePokedex } from "../../../contexts/Pokedex";
@@ -12,7 +12,6 @@ const Pokemons = () => {
 
 	const {adicionaPokemon, removePokemon} = usePokedex()
 	const {pokemonsExibidos, setPokemonsExibidos} = usePokemons()
-	const [pokemons, setPokemons] = useState(false) 
 
 	const [proximaPagina, setProximaPagina] = useState('')
 	const [navBarFixa, setNavBarFixa] = useState(false)
@@ -22,11 +21,17 @@ const Pokemons = () => {
 		const exibeTodos = async () => {
 			const { results, next } = await getPokemons()
 			const regex = retiraProximaPagina(next)
-
+			
+			const novoArray = []
+			for (let i = 0; i < results.length; i++) {
+				const response = await getOnePokemon(results[i].url)
+				novoArray.push(response)
+			}
+			
 			setProximaPagina(regex)
-			setPokemonsExibidos([...results])
-			setPokemons(true)
+			setPokemonsExibidos([...novoArray])
 		}
+
 		exibeTodos()
 	}, [])
 
@@ -43,8 +48,14 @@ const Pokemons = () => {
 	const nextPage = async () => {
 		const { results, next } = await getPokemons(proximaPagina)
 
+		const novoArray = []
+			for (let i = 0; i < results.length; i++) {
+				const response = await getOnePokemon(results[i].url)
+				novoArray.push(response)
+			}
+
 		setProximaPagina(retiraProximaPagina(next))
-		setPokemonsExibidos((pokemonsAntigos) => [...pokemonsAntigos, ...results])
+		setPokemonsExibidos((pokemonsAntigos) => [...pokemonsAntigos, ...novoArray])
 	}
 	return (
 		<>
@@ -52,10 +63,9 @@ const Pokemons = () => {
 		<div className={style.principal}>
 			<h2>Escolha até três pokemons!</h2>
 			<div className={style.pokemons}>
-				{pokemons && pokemonsExibidos.map((pokemon, index) => (
-					<CardPokemon key={index}
-					url = {pokemon.url}
-					nome= {pokemon.name} 
+				{pokemonsExibidos.map((pokemon) => (
+					<CardPokemon key={pokemon.id}
+					pokemon = {pokemon}
 					adicionaPokemon={adicionaPokemon} 
 					removePokemon={removePokemon}
 					/>

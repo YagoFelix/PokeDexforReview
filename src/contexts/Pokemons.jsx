@@ -23,11 +23,7 @@ const usePokemons = () => {
 
 	const alteraPokemonPesquisa = async (pokemonPesquisado) => {
 		try {
-			const {name} = await getOnePokemon(pokemonPesquisado)
-			const pokemonObtido = {
-				name: name,
-				url: pokemonPesquisado
-			}
+			const pokemonObtido = await getOnePokemon(pokemonPesquisado)
 			setPokemonsExibidos(pokemonsAntigos => [pokemonObtido, ...pokemonsAntigos])
 		} catch (error) {
 			return new Error(error)

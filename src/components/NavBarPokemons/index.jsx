@@ -11,7 +11,7 @@ const NavBarPokemons = ({ navBarFixa }) => {
 	const navigate = useNavigate();
 	const { carrinhoPokemon } = usePokedex()
 	const { pokemonsExibidos, alteraPokemonPesquisa } = usePokemons()
-	const [input, setInput] = useState('')
+	const [ input, setInput ] = useState('')
 
 	const pegaUmPokemon = async (e) => {
 		e.preventDefault()
@@ -38,7 +38,7 @@ const NavBarPokemons = ({ navBarFixa }) => {
 					<FontAwesomeIcon icon={faMagnifyingGlass} color='#0A285F' size='2x' />
 				</button>
 			</form>
-			{console.log(pokemonsExibidos)}
+			{/* {console.log(pokemonsExibidos)} */}
 			{
 				carrinhoPokemon.length === 3 &&
 				<button type='button' className={style.button__fim} onClick={goToPokedex}>Finalizar</button>
