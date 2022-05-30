@@ -13,8 +13,9 @@
 		height: 100%;
 		display: flex;
 		width: 80%;
+		// background-color: red;
 
-		input {
+		.input {
 			width: 100%;
 			color: $amarelo-claro;
 			padding-left: 1rem;
@@ -22,6 +23,19 @@
 			border: none;
 			border-bottom: 1px solid $amarelo-claro;
 			background-color: transparent;
+
+			&::placeholder {
+				opacity: 1;
+				font-weight: 500;
+				font-size: 1rem;
+			}
+
+			&__erro {
+				border: 1px solid $erro;
+				&::placeholder{
+					color: $erro;
+				}
+			}
 
 			&:focus {
 				outline: none;

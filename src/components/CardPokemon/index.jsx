@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import { getOnePokemon } from '../../services/axios'
 import { usePokedex } from '../../contexts/Pokedex'
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';

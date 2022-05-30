@@ -23,7 +23,7 @@ const Home = () => {
 			return setErro('Digite um nome válido!')
 		}
 		alteraNomePersonagem(nome)
-		return navigate('/pokemons')
+		navigate('/pokemons')
 	}
 
 	return (
@@ -44,8 +44,8 @@ const Home = () => {
 				<input type="text" maxLength='25' value={nome}
 					onChange={(e) => setNome(e.target.value)} />
 				{erro && <p className={style.erro}>{erro}</p>}
-				<button type='submit' className={style.botao}
-					onClick={nextStep}>Avançar!</button>
+				<button type='button' className={style.botao}
+					onClick={() => nextStep()}>Avançar!</button>
 			</div>
 		</div>
 	)

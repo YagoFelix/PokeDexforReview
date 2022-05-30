@@ -21,10 +21,10 @@ const CardTreinador = (props) => {
 				<img className={style.foto} src={props.treinador.foto} alt="Foto de um treinador Pokemón" />
 			</div>
 			<div className={style.card__info}>
-			<h1 className={style.card__nome}>{props.treinador.nome}</h1>
-			{!props.escolha && !props.final &&
-				<Button aoClicar={aoClicar}>Escolher</Button>
-			}
+				<h1 className={style.card__nome}>{props.treinador.nome}</h1>
+				{!props.escolha && !props.final &&
+					<Button aoClicar={aoClicar}>Escolher</Button>
+				}
 			</div>
 		</div>
 	)

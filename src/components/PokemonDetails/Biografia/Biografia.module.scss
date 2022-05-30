@@ -1,0 +1,59 @@
+@import '../../../styles/variables';
+
+
+.biografia {
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	gap: 1.125rem;
+	
+	.texto {
+		margin-top: 1.25rem;
+		font-weight: 300;
+		color: white;
+	}
+
+	h4 {
+		width: 100%;
+		font-size: 1.475rem;
+		text-align: center;
+		color: $amarelo-claro
+	}
+}
+
+.categoria {
+	display: flex;
+	justify-content: space-between;
+	&__titulo {
+		font-weight: 500;
+		font-size: 1.05rem;
+		color: $amarelo-claro;
+	}
+
+	&__info {
+		font-weight: 300;
+		font-size: 1.05rem;
+		color: white;
+		li {
+			display: block;
+			text-align: right;
+			&::first-letter {
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.generos {
+		display: flex;
+		gap: .725rem;
+	}
+
+	&__chance{
+		text-align: right;
+	&::first-letter{
+		text-transform: uppercase;
+}
+	}
+}

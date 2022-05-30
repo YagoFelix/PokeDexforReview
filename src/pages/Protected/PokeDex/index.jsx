@@ -10,10 +10,7 @@ const PokeDex = () => {
 		<>
 		<div className={style.principal}>
 		<h3>{personagem.nome}, assim seria sua trajetória no mundo Pokemón</h3>
-		<div className={style.personagem}>
 			<CardTreinador treinador={personagem} final={true}/>
-		</div>
-		Vasco
 		</div>
 		</>
 	)

@@ -27,18 +27,20 @@ const Pokemons = () => {
 				const response = await getOnePokemon(results[i].url)
 				novoArray.push(response)
 			}
+
+			// const novoArray = await results.map(async pokemon => await getOnePokemon(pokemon.url))
 			
 			setProximaPagina(regex)
 			setPokemonsExibidos([...novoArray])
 		}
-
 		exibeTodos()
 	}, [])
+
 
 	useEffect(() => {
 		const posicaoScroll = () => {
 			const posicao = window.scrollY
-			const limiteEmPx = 30*(window.innerHeight/100)
+			const limiteEmPx = 35*(window.innerHeight/100)
 			posicao > limiteEmPx ? setNavBarFixa(true) : setNavBarFixa(false)
 		}
 
@@ -63,8 +65,9 @@ const Pokemons = () => {
 		<div className={style.principal}>
 			<h2>Escolha até três pokemons!</h2>
 			<div className={style.pokemons}>
-				{pokemonsExibidos.map((pokemon) => (
-					<CardPokemon key={pokemon.id}
+				{pokemonsExibidos && pokemonsExibidos.map((pokemon, index) => (
+					<CardPokemon 
+					key = {pokemon.id}
 					pokemon = {pokemon}
 					adicionaPokemon={adicionaPokemon} 
 					removePokemon={removePokemon}

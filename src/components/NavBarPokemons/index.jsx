@@ -6,20 +6,26 @@ import { useState } from 'react';
 import { usePokedex } from '../../contexts/Pokedex';
 import { usePokemons } from '../../contexts/Pokemons';
 import { useNavigate } from 'react-router-dom';
+import { getOnePokemon } from '../../services/axios';
 
 const NavBarPokemons = ({ navBarFixa }) => {
 	const navigate = useNavigate();
 	const { carrinhoPokemon } = usePokedex()
-	const { pokemonsExibidos, alteraPokemonPesquisa } = usePokemons()
+	const { alteraPokemonPesquisa } = usePokemons()
 	const [ input, setInput ] = useState('')
+	const [	erro, setErro	] = useState(false)
 
 	const pegaUmPokemon = async (e) => {
 		e.preventDefault()
 		const url = `https://pokeapi.co/api/v2/pokemon/${input}`
 		try {
-			await alteraPokemonPesquisa(url)
+			const pokemonPesquisado = await getOnePokemon(url)
+			alteraPokemonPesquisa(pokemonPesquisado)
+			setErro(false)
+			window.scrollTo(0, (40*(window.innerHeight/100)))
 		} catch (error) {
-			console.log(error)
+			setErro(true)
+			setInput('')
 		}
 	}
 
@@ -33,12 +39,19 @@ const NavBarPokemons = ({ navBarFixa }) => {
 			[style.nav__fixa]: navBarFixa === true
 		})}>
 			<form onSubmit={pegaUmPokemon}>
-				<input type="text" name="pokemon" onChange={({ target }) => setInput(target.value)} />
+				<input type="text" 
+				value={input}
+				name="pokemon" 
+				onChange={({ target }) => setInput(target.value)} 
+				placeholder={erro ? 'Esse pokémon não existe!' : 'Digite um nome'} 
+				className={classNames({
+					[style.input]: true,
+					[style.input__erro]: erro === true
+				})}/>
 				<button type="submit">
 					<FontAwesomeIcon icon={faMagnifyingGlass} color='#0A285F' size='2x' />
 				</button>
 			</form>
-			{/* {console.log(pokemonsExibidos)} */}
 			{
 				carrinhoPokemon.length === 3 &&
 				<button type='button' className={style.button__fim} onClick={goToPokedex}>Finalizar</button>

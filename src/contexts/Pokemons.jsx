@@ -22,12 +22,7 @@ const usePokemons = () => {
 	const {pokemonsExibidos, setPokemonsExibidos} = useContext(PokemonsContext)
 
 	const alteraPokemonPesquisa = async (pokemonPesquisado) => {
-		try {
-			const pokemonObtido = await getOnePokemon(pokemonPesquisado)
-			setPokemonsExibidos(pokemonsAntigos => [pokemonObtido, ...pokemonsAntigos])
-		} catch (error) {
-			return new Error(error)
-		}
+			setPokemonsExibidos(pokemonsAntigos => [pokemonPesquisado, ...pokemonsAntigos])
 	}
 
 	return {

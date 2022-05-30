@@ -85,7 +85,34 @@ const defineCorTipo = (tipoPokemon) => {
 	return cores[tipo]
 }
 
+const converteUnidades = (tipo, valorAConverter) => {
+	let valorConvertido = ''
+	
+	switch (tipo) {
+		case 'altura':
+			valorConvertido = `${(valorAConverter/10)} m`
+			break;
+		case 'peso':
+			valorConvertido = `${(valorAConverter/10)} kg`
+			break;
+		case 'gmasc':
+			valorConvertido = `${100 - ((valorAConverter/8)*100)}%`
+			break;
+		case 'gfem':
+			valorConvertido = `${(valorAConverter/8)*100}%`
+			break;
+		case 'captura':
+			valorConvertido = `${((valorAConverter/255)*100).toFixed(2)}%`
+			break;
+		default:
+			valorConvertido = valorAConverter
+	}
+
+	return valorConvertido
+}
+
 export {
 	retiraProximaPagina,
-	defineCorTipo
+	defineCorTipo,
+	converteUnidades
 }

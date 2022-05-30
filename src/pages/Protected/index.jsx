@@ -8,9 +8,9 @@ const ProtectedLayout = ({ children }) => {
 	const { personagem } = useUsuario();
 
 	useEffect(() => {
-		if (Object.keys(personagem).length == 0) {
-			return navigate('/')
-		}
+		// if (Object.keys(personagem).length == 0) {
+		// 	return navigate('/')
+		// }
 	}, [])
 
 	return children ? children : < Outlet />
