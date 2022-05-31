@@ -12,9 +12,9 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	justify-items: center;
 	align-items: center;
-	padding: 4rem;
+	padding: 4rem 0;
 	gap: 4rem;
-	@media (max-width: 768px)  {
+	@media (max-width: 992px)  {
 		grid-template-columns: auto;
 		grid-template-rows: 1fr 1fr 1fr;
 	}

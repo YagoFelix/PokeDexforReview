@@ -7,11 +7,21 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: red;
+	justify-content: center;
+	gap: 3rem;
+	padding: 3rem;
 
-	.personagem {
-		width: 70%;
-		height: 100%;
-		background-color: black;
+	.pokemons {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: space-around;
+	}
+
+	.pokemon {
+		max-width: 300px;
+		overflow: hidden;
+		max-height: 450px;
 	}
 }

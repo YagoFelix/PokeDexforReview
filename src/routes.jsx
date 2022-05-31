@@ -8,6 +8,7 @@ import PokemonDetails from "./components/PokemonDetails"
 import ProtectedLayout from "./pages/Protected"
 import Pokemons from "./pages/Protected/Pokemons"
 import PokeDex from "./pages/Protected/PokeDex"
+import NotFound from "./pages/NotFound"
 
 const AppRouter = () => {
 	return (
@@ -25,6 +26,7 @@ const AppRouter = () => {
 									</Route>
 									<Route path='pokedex' element={< PokeDex />} />
 								</Route>
+								<Route path="*" element={<NotFound />}/>
 							</Route>
 						</Routes>
 					</BrowserRouter>

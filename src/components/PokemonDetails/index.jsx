@@ -1,6 +1,6 @@
 import style from './PokemonDetails.module.scss';
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import { getOnePokemon } from '../../services/axios'
 import TiposPokemon from '../TiposPokemon'
 import Biografia from './Biografia';
@@ -14,6 +14,8 @@ const PokemonDetails = () => {
 	const [pokemon, setPokemon] = useState({})
 	const [imagem, setImagem] = useState('')
 	const [tipos, setTipos] = useState([])
+
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		const url = `https://pokeapi.co/api/v2/pokemon/${id}`
@@ -29,7 +31,7 @@ const PokemonDetails = () => {
 				setUrl(response.species.url)
 
 			} catch (error) {
-				return new Error(error)
+				return navigate('/404')
 			}
 		}
 		obtemPokemon()

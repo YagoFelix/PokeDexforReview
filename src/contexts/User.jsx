@@ -25,7 +25,7 @@ const UsuarioProvider = ({ children }) => {
 		}
 	]
 
-	const [personagem, setPersonagem] = useState(personagens[0])
+	const [personagem, setPersonagem] = useState({})
 
 	return (
 		<UsuarioContext.Provider value={{

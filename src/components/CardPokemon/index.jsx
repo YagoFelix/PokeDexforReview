@@ -27,14 +27,17 @@ const CardPokemon = (props) => {
 						<TiposPokemon key={index} tipo={tipo} />
 					))}
 				</ul>
+				{props.fim !== true &&
+				
 				< Link to={`${pokemon.id}`}>
 				<FontAwesomeIcon icon={faCircleArrowRight} size='2x' color='#FFCC00' />
 				</Link>
+				}
 			</div>
-			{verificaCarrinho(pokemon.id) && carrinhoPokemon.length < 3 &&
+			{verificaCarrinho(pokemon.id) && carrinhoPokemon.length < 3 && props.fim !== true &&
 			<Button aoClicar={() => props.adicionaPokemon(pokemon.id)}>Escolher</Button>
 			}
-			{!verificaCarrinho(pokemon.id) && carrinhoPokemon.length > 0 &&
+			{!verificaCarrinho(pokemon.id) && carrinhoPokemon.length > 0 && props.fim !== true &&
 			<Button remover={true} aoClicar={() => props.removePokemon(pokemon.id)}>Remover</Button>
 			}
 		</div>

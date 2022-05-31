@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .card {
-	width: 350px;
+	width: 300px;
 	height: 450px;
 	display: flex;
 	flex-direction: column;
@@ -58,5 +58,5 @@
 
 .ativo {
 	background-color: $azul-claro;
-	border: 4px solid $amarelo-escuro
+	// border: 4px solid $amarelo-escuro
 }

@@ -1,0 +1,28 @@
+.principal {
+	padding: 6rem;
+	text-align: center;
+
+	h2{
+		font-size: 3rem;
+	}
+
+	.imagem {
+		margin: 1rem 0;
+		width: 50%;
+		object-fit: cover;
+		box-shadow: 0 0 8px black;
+		border-radius: 10px;
+	}
+
+	p {
+		font-size: .8rem;
+		font-weight: 400;
+	}
+}
+
+.voltar {
+	position: absolute;
+	margin-top: 2rem;
+	left: 2rem;
+	// top: 2rem;
+}

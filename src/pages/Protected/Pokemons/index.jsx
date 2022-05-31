@@ -73,15 +73,6 @@ const Pokemons = () => {
 					removePokemon={removePokemon}
 					/>
 				))}
-
-			{/* {pokemons && pokemons.map((pokemon, index) => (
-				<CardPokemon key={index} 
-				url={pokemon.url} 
-				nome={pokemon.name} 
-				adicionaPokemon={adicionaPokemon} 
-				removePokemon={removePokemon}
-				/>
-				))} */}
 			</div>
 			< Button aoClicar={nextPage} verMais={true}>Ver mais</Button>
 		</div>
