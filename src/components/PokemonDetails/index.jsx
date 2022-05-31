@@ -49,7 +49,7 @@ const PokemonDetails = () => {
 				const response = await getOnePokemon(url)
 				const imgPokemon = response.sprites.other['official-artwork'].front_default
 				const tiposPokemon = response.types.map(tipo => tipo.type.name)
-
+				
 				setTipos([...tiposPokemon])
 				setImagem(imgPokemon)
 				setPokemon(response)

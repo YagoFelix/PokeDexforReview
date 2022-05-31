@@ -104,6 +104,12 @@ const converteUnidades = (tipo, valorAConverter) => {
 		case 'captura':
 			valorConvertido = `${((valorAConverter/255)*100).toFixed(2)}%`
 			break;
+		case 'max1': 
+			valorConvertido = Number((valorAConverter*2) + 204)
+			break;
+		case 'max2':
+			valorConvertido = Math.round(((valorAConverter*2)+99)*1.1)
+			break;
 		default:
 			valorConvertido = valorAConverter
 	}
