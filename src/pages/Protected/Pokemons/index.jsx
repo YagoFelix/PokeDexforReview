@@ -12,6 +12,7 @@ const Pokemons = () => {
 
 	const {adicionaPokemon, removePokemon} = usePokedex()
 	const {pokemonsExibidos, setPokemonsExibidos} = usePokemons()
+	const [loading, setLoading] = useState(false)
 
 	const [proximaPagina, setProximaPagina] = useState('')
 	const [navBarFixa, setNavBarFixa] = useState(false)
@@ -19,6 +20,7 @@ const Pokemons = () => {
 
 	useEffect(() => {
 		const exibeTodos = async () => {
+			setLoading(true)
 			const { results, next } = await getPokemons()
 			const regex = retiraProximaPagina(next)
 			
@@ -32,6 +34,7 @@ const Pokemons = () => {
 			
 			setProximaPagina(regex)
 			setPokemonsExibidos([...novoArray])
+			setLoading(false)
 		}
 		exibeTodos()
 	}, [])
@@ -64,6 +67,9 @@ const Pokemons = () => {
 		<NavBarPokemons navBarFixa={navBarFixa}/>
 		<div className={style.principal}>
 			<h2>Escolha até três pokemons!</h2>
+			{loading && 
+				<h3>Estamos carregando...</h3>
+			}
 			<div className={style.pokemons}>
 				{pokemonsExibidos && pokemonsExibidos.map((pokemon, index) => (
 					<CardPokemon 

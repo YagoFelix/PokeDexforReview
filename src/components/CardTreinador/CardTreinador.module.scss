@@ -9,7 +9,16 @@
 	padding: 0 1rem;
 	border-radius: 10px;
 	box-shadow: 0px 0px 12px black;
+	animation-name: card-treinador;
+	animation-duration: 1s;
+	background: linear-gradient(to bottom, $azul-claro 50%, $azul-escuro 50%);
+  background-size: 100% 200%;
+  background-position: bottom left;
+	transition: .5s;
 
+	&:hover {
+		transform: translateY(-5%);
+	}
 	&__foto {
 		height: 50%;
 		width: 100%;
@@ -57,6 +66,14 @@
 }
 
 .ativo {
-	background-color: $azul-claro;
-	// border: 4px solid $amarelo-escuro
+	background-position: top left;
+}
+
+@keyframes card-treinador {
+	0% {
+		height: 0;
+	}
+	100%{
+		height: 450px;
+	}
 }

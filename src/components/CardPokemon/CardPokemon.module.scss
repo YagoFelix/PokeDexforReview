@@ -10,6 +10,14 @@
 	padding: 0 1rem;
 	border-radius: 10px;
 	box-shadow: 0px 0px 8px black;
+	background: linear-gradient(to bottom, $azul-claro 50%, transparent 50%);
+  background-size: 100% 200%;
+  background-position: bottom left;
+	transition: .5s;
+	
+	&:hover {
+		transform: translateY(-5%);
+	}
 
 	&__img {
 		width: 100%;
@@ -50,6 +58,42 @@
 	}
 
 	&__ativo {
-		background-color: $azul-claro;
+		background-position: top left;
+		// background-image: linear-gradient(to right, $azul-claro, $azul-claro);
+		// background-size: 200% 100%;
+		// transition: all .7s ease-out;
+		// background-position: bottom left;
+		// background-image: linear-gradient(to right, transparent, transparent);
+		// animation: pokemon-ativo 2s;
+		// animation-timing-function: linear;
 	}
 }
+
+// @keyframes pokemon-ativo {
+// 	0%{
+// 		background-image: linear-gradient(to right, transparent, transparent);
+// 		background-size: 0;
+// 	}
+// 	100%{
+// 		background-size: 100%;
+// 		background-image: linear-gradient(to right, $azul-claro, $azul-claro);
+// 	}
+// }
+
+// @keyframes card-pokemon {
+// 	0%{
+// 		transform: translateY(0%);
+// 	}
+// 	25% {
+// 		transform: translateY(-5%);
+// 	}
+// 	50%{
+// 		transform: translateY(0%);
+// 	}
+// 	75%{
+// 		transform: translateY(5%);
+// 	}
+// 	100%{
+// 		transform: translateY(0%);
+// 	}
+// }
