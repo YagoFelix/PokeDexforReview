@@ -1,0 +1,40 @@
+@import '../../../styles/variables';
+
+.principal {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.125rem;
+
+	.titulo {
+		margin-top: 1.25rem;
+	}
+
+	.stats {
+		// background-color: white;
+		display: flex;
+		justify-content: space-between;
+
+		&__titulo {
+			text-align: left;
+			color: $amarelo-escuro;
+			font-size: 1.05rem;
+			font-weight: 500;
+			&::first-letter{
+				text-transform: uppercase;
+			}
+		}
+
+		&__conteudo {
+			color: white;
+			display: flex;
+			gap: .5rem;
+			font-weight: 300;
+		}
+	}
+}
+
+.total {
+	font-weight: 500;
+}

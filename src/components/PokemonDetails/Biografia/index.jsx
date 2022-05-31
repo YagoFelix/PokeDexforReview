@@ -23,7 +23,9 @@ const Biografia = (props) => {
 				const data = await response.json()
 				const habilidades = pokemon.abilities.map(abilite => abilite)
 
-				setTexto(data.flavor_text_entries[0].flavor_text)
+				const texto = data.flavor_text_entries.find(texto => texto.language.name === "en")
+
+				setTexto(texto.flavor_text)
 				setHabilidades([...habilidades])
 				setGenero(data.gender_rate)
 				setFelicidadeBase(data.base_happiness)
@@ -54,7 +56,6 @@ const Biografia = (props) => {
 					))}
 					</ul>
 				</div>
-				{console.log(genero)}
 				<div className={style.categoria}>
 				<span className={style.categoria__titulo}>Gênero</span>
 					{genero !== -1 &&
