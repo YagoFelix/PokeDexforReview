@@ -19,7 +19,7 @@ const Stats = (props) => {
 
 	return (
 		<>
-		{console.log(stats)}
+		{/* {console.log(stats)} */}
 		<div className={style.principal}>
 		<h3 className={style.titulo}>Estatísticas bases</h3>
 		{stats.map((estatistica, index) => (

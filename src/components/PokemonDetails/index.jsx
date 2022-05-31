@@ -8,12 +8,11 @@ import Stats from './Stats';
 import Evolucao from './Evolucao';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import classNames from 'classnames';
 import Abas from './Abas';
 
 const PokemonDetails = () => {
-	// const grupoInfos = ['Biografia', 'Stats','Evolução']
 	const { id } = useParams()
+
 	const [url, setUrl] = useState('')
 	const [pokemon, setPokemon] = useState({})
 	const [imagem, setImagem] = useState('')
@@ -22,6 +21,10 @@ const PokemonDetails = () => {
 	const [abaExbida, setAbaExibida] = useState()
 
 	const navigate = useNavigate()
+	const alteraPokemon = (id) => {
+		navigate(`/pokemons/${id}`, {replace:true})
+	}
+
 	const abas = [
 		{
 			id: 1,
@@ -36,7 +39,7 @@ const PokemonDetails = () => {
 		{
 			id: 3,
 			label: 'Evolução',
-			componente: <Evolucao pokemon={pokemon}/>
+			componente: <Evolucao pokemon={pokemon} alteraPokemon={alteraPokemon}/>
 		}
 	]
 	useEffect(() => {
@@ -57,7 +60,7 @@ const PokemonDetails = () => {
 			}
 		}
 		obtemPokemon()
-	}, [])
+	}, [id])
 
 	const alteraAba = (aba) => {
 		setAbaExibida(aba)

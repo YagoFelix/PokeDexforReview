@@ -1,0 +1,19 @@
+.principal {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 1.125rem;
+
+	.titulo {
+		margin-top: 1.25rem;
+	}
+
+	.evolucao {
+		display: grid;
+		justify-content: center;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+		gap: 2rem;
+	}
+}
