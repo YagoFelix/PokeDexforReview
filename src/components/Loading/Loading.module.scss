@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+
+.principal {
+	background-image: linear-gradient(to right, $azul-escuro, $azul-conteudo);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	text-align: center;
+	.img {
+		height: 100%;
+		width: 80%;
+		margin: 0 auto;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		img {
+			width: 20vw;
+			object-fit: cover;
+			animation: pokebola 1.5s linear;
+		}
+	}
+}
+
+.nome {
+	margin-bottom: 3rem;
+	z-index: 99;
+	color: $amarelo-claro;
+}
+
+@keyframes pokebola {
+	0%{
+		transform: translateY(0);
+	}
+	25%{
+		transform: translateY(-25%);
+	}
+	50%{
+		transform: translateY(0%);
+	}
+	75%{
+		transform: translateY(25%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}

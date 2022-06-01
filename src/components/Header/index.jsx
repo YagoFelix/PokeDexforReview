@@ -8,7 +8,7 @@ const Header = () => {
 			<div className={style.cabecalho__logo}>
 				<img src={Logo} alt="Logo Pokémon" />
 			</div>
-			<h1 className={style.cabecalho__titulo}>PokeCommerce</h1>
+			<h1 className={style.cabecalho__titulo}>PokeDex</h1>
 		</header>
 	)
 }

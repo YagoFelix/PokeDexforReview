@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { React } from "react"
 import { UsuarioProvider } from './contexts/User'
 import { PokedexProvider } from "./contexts/Pokedex"
 import { PokemonsProvider } from "./contexts/Pokemons"
