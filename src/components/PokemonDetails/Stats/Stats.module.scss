@@ -31,7 +31,7 @@
 		&__conteudo {
 			color: white;
 			display: flex;
-			gap: 2rem;
+			gap: 1.5rem;
 			font-weight: 300;
 			display: flex;
 			justify-content: space-between;
@@ -43,14 +43,10 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			gap: 2rem;
 			.barra {
-				margin: 0 1rem;
-				height: 30%;
 				height: 8px;
 				background-color: white;
-				flex-grow: 1;
-				position: relative;
+				width: 80%;
 				.ativa {
 					display: block;
 					width: 0px;
