@@ -19,9 +19,10 @@ const Home = () => {
 	const navigate = useNavigate()
 
 	const nextStep = () => {
-		if (nome.length < 3) {
-			return setErro('Digite um nome válido!')
+		if (nome.length < 3 || Object.keys(personagem).length === 0) {
+			return setErro('Selecione um personagem ou digite um nome válido!')
 		}
+
 		alteraNomePersonagem(nome)
 		navigate('/pokemons')
 	}
@@ -43,10 +44,10 @@ const Home = () => {
 				<h3>Caso queira usar seu nome:</h3>
 				<input type="text" maxLength='25' value={nome}
 					onChange={(e) => setNome(e.target.value)} />
-				{erro && <p className={style.erro}>{erro}</p>}
 				<button type='button' className={style.botao}
 					onClick={() => nextStep()}>Avançar!</button>
 			</div>
+					{erro && <p className={style.erro}>{erro}</p>}
 		</div>
 	)
 }

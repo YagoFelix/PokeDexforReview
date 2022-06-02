@@ -16,7 +16,7 @@ const Pokemons = () => {
 
 	const [proximaPagina, setProximaPagina] = useState('')
 	const [navBarFixa, setNavBarFixa] = useState(false)
-
+	const [loadingNext, setLoadingNext] = useState(false)
 
 	useEffect(() => {
 		const exibeTodos = async () => {
@@ -47,10 +47,13 @@ const Pokemons = () => {
 			posicao > limiteEmPx ? setNavBarFixa(true) : setNavBarFixa(false)
 		}
 
+		window.scrollTo(0,0)
+
 		window.addEventListener('scroll', posicaoScroll)
 	}, [])
 
 	const nextPage = async () => {
+		setLoadingNext(true)
 		const { results, next } = await getPokemons(proximaPagina)
 
 		const novoArray = []
@@ -61,6 +64,7 @@ const Pokemons = () => {
 
 		setProximaPagina(retiraProximaPagina(next))
 		setPokemonsExibidos((pokemonsAntigos) => [...pokemonsAntigos, ...novoArray])
+		setLoadingNext(false)
 	}
 	return (
 		<>
@@ -81,6 +85,9 @@ const Pokemons = () => {
 				))}
 			</div>
 			< Button aoClicar={nextPage} verMais={true}>Ver mais</Button>
+			{loadingNext && 
+				<h3>Estamos carregando...</h3>
+			}
 		</div>
 		</>
 	)

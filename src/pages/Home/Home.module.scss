@@ -33,11 +33,6 @@
 		background-color: transparent;
 	}	
 
-	.erro {
-		color: $erro;
-		font-weight: bold;
-	}
-
 	& .botao {
 		width: 100%;
 		border: none;
@@ -53,4 +48,10 @@
 			background-color: $amarelo-escuro;
 		}
 	}
+}
+
+.erro {
+	margin: 2rem 0;
+	color: $erro;
+	font-weight: bold;
 }
