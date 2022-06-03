@@ -8,15 +8,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const CardPokemon = (props) => {
-	const {pokemon} = props
+	//animationDelay: `${delay*0.2}s`}}
+	const {pokemon, delay} = props
 
 	const { verificaCarrinho, carrinhoPokemon } = usePokedex()
+
+	const pegaDelay = (index) => {
+		let novoIndex = index
+		while (novoIndex > 19) {
+			novoIndex = novoIndex - 20
+		}
+		return novoIndex
+	}
 
 	return (
 		<div className={classNames({
 			[style.card]: true,
 			[style.card__ativo]: verificaCarrinho(pokemon.id) === false
-		})}>
+		})} style={{animationDelay: `${delay > 19 ? pegaDelay(delay)*0.2 : delay*0.2}s`}}>
 			<div className={style.card__img}>
 				<img src={pokemon.sprites.other['official-artwork'].front_default} alt='Foto de um pokémon' />
 			</div>

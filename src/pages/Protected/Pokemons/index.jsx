@@ -79,6 +79,7 @@ const Pokemons = () => {
 					<CardPokemon 
 					key = {pokemon.id}
 					pokemon = {pokemon}
+					delay = {index}
 					adicionaPokemon={adicionaPokemon} 
 					removePokemon={removePokemon}
 					/>
